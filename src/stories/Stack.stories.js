@@ -1,4 +1,4 @@
-import Stack from '../components/Stack';
+import Stack from '../components/ui/Stack';
 
 export default {
     title: 'Components/Stack',
