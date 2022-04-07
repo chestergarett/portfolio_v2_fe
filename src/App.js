@@ -1,10 +1,15 @@
 
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';  
+import PageDashboard from './components/pages/PageDashboard';
+
 const App = () => {
   
   return (
-    <div className="App">
-      <h1 className="text-xl font-bold underline">Hello world!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' exact element={<PageDashboard/>} />
+      </Routes>
+    </Router>
   );
 
 }
