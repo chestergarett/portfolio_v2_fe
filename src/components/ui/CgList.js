@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -19,20 +20,21 @@ const CgList = ({data, type}) => {
                                 <Avatar alt={item.img} src={item.img} />
                             </ListItemAvatar>
                             <ListItemText>
-                                <Typography variant='h3' component='div'>
+                                <Typography variant='body1' component='div' sx={{fontWeight: 'bold'}}>
                                     {item.company}
                                 </Typography>
-                                <Typography variant='subtitle1' component='div'>
+                                <Typography variant='caption' component='div' className='text-gray-500' paragraph>
                                     {item.fullDate}
                                 </Typography>
                                 {
-                                    item.subExperience.map(subItem => 
+                                    item.subExperience.map( (subItem,i) => 
                                         <>
-                                            <Typography variant='h3'>{subItem.position}</Typography>
-                                            <Typography variant='subtitle1'>{subItem.fullDate}</Typography>
+                                            <Typography variant='h6' className='pt-0.5'>{subItem.position}</Typography>
+                                            <Typography variant='caption' className='text-gray-500' gutterBottom>{subItem.fullDate}</Typography>
                                             {subItem.description.map(subDesc => 
-                                                <Typography variant='body2' component='div'>{subDesc.subDesc}</Typography>
+                                                <Typography variant='body2' component='div' className='pt-1'>{subDesc}</Typography>
                                             )}
+                                            {(i === item.subExperience.length-1) ? '' : <Divider component="li" className='pb-1'/>}
                                         </>
                                     )
                                 }
@@ -53,7 +55,7 @@ const CgList = ({data, type}) => {
                                 <Avatar alt={item.img} src={item.img} />
                             </ListItemAvatar>
                             <ListItemText>
-                                <Typography variant='h3' component='div'>
+                                <Typography variant='body1' component='div' sx={{fontWeight: 'bold'}}>
                                     {item.school}
                                 </Typography>
                                 <Typography variant='subtitle1' component='div'>
@@ -79,7 +81,7 @@ const CgList = ({data, type}) => {
                                 <Avatar alt={item.img} src={item.img} />
                             </ListItemAvatar>
                             <ListItemText>
-                                <Typography variant='h3' component='div'>
+                                <Typography variant='body1' component='div' sx={{fontWeight: 'bold'}}>
                                     {item.license}
                                 </Typography>
                                 <Typography variant='subtitle1' component='div'>
@@ -118,8 +120,8 @@ const CgList = ({data, type}) => {
 }
 
 CgList.propTypes = {
-    data: PropTypes.obj,
-    type: PropTypes.string
+    data: PropTypes.arrayOf(PropTypes.object),
+    type: PropTypes.oneOf(['workExperience','education','licenses','skills'])
 }
 
 export default CgList;
