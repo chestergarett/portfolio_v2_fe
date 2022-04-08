@@ -10,10 +10,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     ...theme.mixins.toolbar,
   }));
 
-const CgContent = ({content}) => {
+const CgContent = ({content, open}) => {
 
     return (
-        <Box component="main" sx={{ flexGrow: 1, p: 3}}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3}} className={open ? 'ml-48' : ''}>
           <DrawerHeader/>
               {content}
         </Box>
