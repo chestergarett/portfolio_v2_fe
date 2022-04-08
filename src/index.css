@@ -3,8 +3,15 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root {
+  --white-primary: rgb(255 255 255);
+  --white-secondary: rgb(244 244 245);
+  --blue-primary: #1976d2;
+}
+
 body {
   margin: 0;
+  background-color: var(--white-secondary) !important;
   font-family: 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
