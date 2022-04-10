@@ -27,7 +27,6 @@ const CgPageLayout = ({appbar, sidebar, content}) => {
   
     const handleDrawerOpen = () => {
       setOpen(true);
-      console.log('clicked')
     };
   
     const handleDrawerClose = () => {

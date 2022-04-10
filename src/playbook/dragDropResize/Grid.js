@@ -13,7 +13,7 @@ const layout = [
 ]
 
 const GridItemWrapper = styled.div`
-    background: green;
+    background: white;
 `;
 
 const GridItemContent = styled.div`

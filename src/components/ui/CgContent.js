@@ -13,7 +13,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const CgContent = ({content, open}) => {
 
     return (
-        <Box component="main" sx={{ flexGrow: 1, p: 3}} className={open ? 'ml-48' : ''}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3}}>
           <DrawerHeader/>
               {content}
         </Box>
