@@ -36,7 +36,6 @@ const CgPageLayout = ({appbar, sidebar, content}) => {
     return (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <CgAppbar data={appbar} open={open} handleDrawerOpen={handleDrawerOpen}/>
           {open ? <Drawer variant="permanent">
             <DrawerHeader>
               <IconButton onClick={handleDrawerClose}>
@@ -46,7 +45,7 @@ const CgPageLayout = ({appbar, sidebar, content}) => {
             <Divider/>
                 <CgSidebar options={sidebar}/>
             <Divider />            
-          </Drawer> : ''}
+          </Drawer> : <CgAppbar data={appbar} handleDrawerOpen={handleDrawerOpen}/>}
           <CgContent content={content} open={open}/>
       </Box>
     );

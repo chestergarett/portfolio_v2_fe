@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import HomeIcon from '@mui/icons-material/Home';
 import DialpadIcon from '@mui/icons-material/Dialpad';
 import { Grid } from '../../playbook/dragDropResize/Grid';
-import About from '../dashboards/resume/cards/About';
+import Resume from '../dashboards/resume/Resume';
 
 const data = {
 appbar: [
@@ -16,7 +16,7 @@ sidebar: [
     {key: v4(), text: 'Dashboards', icon: <HomeIcon />, link: '/Landing'},
     {key: v4(), text: 'Apps', icon: <DialpadIcon  />, link: '/Calculator'},
 ],
-content: <About />
+content: <Resume />
 }
 
 const PageDashboard = () => {
