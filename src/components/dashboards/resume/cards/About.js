@@ -14,14 +14,15 @@ const About = () => {
             .catch(err => console.log(err));
     },[])
     
-    console.log(about.name)
     return (
         <CgCard>
             <CgCardHeader title={about.name}/>
             <CgCardContent>
+                <div>
                 <CgAvatar src={about.url} width={80} height={80} />
-                <div>{about.address}</div>
-                <div>{about.description}</div>
+                    <div>{about.address}</div>
+                    <div>{about.description}</div>
+                </div>
             </CgCardContent>
         </CgCard>
     )

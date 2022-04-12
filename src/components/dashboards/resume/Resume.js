@@ -1,12 +1,16 @@
 import {Responsive, WidthProvider} from 'react-grid-layout';
 import About from './cards/About';
+import SkillsGeneral from './cards/SkillsGeneral';
+import SkillsLanguages from './cards/SkillsLanguages';
+import SkillsFrameworks from './cards/SkillsFrameworks';
+import SkillsTech from './cards/SkillsTech';
 
 const layout = [
-    { i: "about", x: 0, y:0, w: 1, h: 1},
-    { i: "education", x: 1, y:0, w: 1, h: 1},
-    { i: "licenses", x: 2, y:0, w: 1, h: 1},
-    { i: "workExperience", x: 3, y:0, w: 1, h: 1},
-    { i: "skills", x: 4, y:0, w: 5, h: 1},
+    { i: "about", x: 1, y:0, w: 3, h: 3},
+    { i: "skills-general", x: 3, y:0, w: 3, h: 1},
+    { i: "skills-languages", x: 2, y:0, w: 1, h: 1},
+    { i: "skills-frameworks", x: 3, y:0, w: 1, h: 1},
+    { i: "skills-tech", x: 4, y:0, w: 5, h: 1},
 ]
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -24,7 +28,21 @@ const Resume = () => {
                 isRearrangeable
                 isResizable
             >
-                <About key='about'/>
+                <div key='about'>
+                    <About />
+                </div>
+                <div key='skills-general'>
+                    <SkillsGeneral/>
+                </div>
+                <div key='skills-languages'>
+                    <SkillsLanguages />
+                </div>
+                <div key='skills-frameworks'>
+                    <SkillsFrameworks />
+                </div>
+                <div key='skills-tech'>
+                <SkillsTech />
+                </div>
             </ResponsiveGridLayout>
         </div>
     )
