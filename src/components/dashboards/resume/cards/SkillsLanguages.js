@@ -34,10 +34,15 @@ const initialSkills = {
 
 const initialOptions = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     plugins: {
         legend: { 
             display: false,
+        }
+    },
+    elements: {
+        line: {
+            borderWidth: 3
         }
     }
 }

@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 const CgCard = ({children}) => {
 
     return (
-        <Card>
+        <Card className="h-full w-full">
             {children}
         </Card>
     )

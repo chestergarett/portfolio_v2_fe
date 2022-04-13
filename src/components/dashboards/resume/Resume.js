@@ -1,4 +1,4 @@
-import {Responsive, WidthProvider} from 'react-grid-layout';
+import ReactGridLayout, {Responsive, WidthProvider} from 'react-grid-layout';
 import About from './cards/About';
 import SkillsGeneral from './cards/SkillsGeneral';
 import SkillsLanguages from './cards/SkillsLanguages';
@@ -6,14 +6,14 @@ import SkillsFrameworks from './cards/SkillsFrameworks';
 import SkillsTech from './cards/SkillsTech';
 
 const layout = [
-    { i: "about", x: 1, y:0, w: 3, h: 3},
-    { i: "skills-general", x: 3, y:0, w: 3, h: 1},
-    { i: "skills-languages", x: 2, y:0, w: 1, h: 1},
-    { i: "skills-frameworks", x: 3, y:0, w: 1, h: 1},
-    { i: "skills-tech", x: 4, y:0, w: 5, h: 1},
+    { i: "about", x: 0, y:0, w: 5, h: 1, minW: 5},
+    { i: "skills-general", x: 5, y:0, w: 11, h: 2,},
+    { i: "skills-languages", x: 0, y:6, w: 5, h: 4},
+    { i: "skills-frameworks", x: 5, y:6, w: 5, h: 3},
+    { i: "skills-tech", x: 10, y:12, w: 6, h: 3},
 ]
 
-const ResponsiveGridLayout = WidthProvider(Responsive);
+const ResponsiveGridLayout = WidthProvider(ReactGridLayout);
 
 const Resume = () => {
     
@@ -21,12 +21,17 @@ const Resume = () => {
         <div className='p4'>
             <ResponsiveGridLayout 
                 layout={layout}
-                breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-                cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }} 
-                rowHeight={300} 
+                // breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+                // cols={{ lg: 16, md: 16, sm: 12, xs: 10, xxs: 1 }} 
+                // breakpoints={{lg: 1200}}
+                cols={16}
+                // cols={16}
+                rowHeight={150} 
                 isDraggable
                 isRearrangeable
                 isResizable
+                width={1200}
+                onBreakPointChange={(e)=>{console.log(e)}}
             >
                 <div key='about'>
                     <About />
@@ -41,7 +46,7 @@ const Resume = () => {
                     <SkillsFrameworks />
                 </div>
                 <div key='skills-tech'>
-                <SkillsTech />
+                    <SkillsTech />
                 </div>
             </ResponsiveGridLayout>
         </div>

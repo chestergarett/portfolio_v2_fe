@@ -18,10 +18,12 @@ const About = () => {
         <CgCard>
             <CgCardHeader title={about.name}/>
             <CgCardContent>
-                <div>
+                <div className="flex">
                 <CgAvatar src={about.url} width={80} height={80} />
-                    <div>{about.address}</div>
-                    <div>{about.description}</div>
+                    <div className="flex flex-col items-start p-3">
+                        <div>{about.address}</div>
+                        <div>{about.description}</div>
+                    </div>
                 </div>
             </CgCardContent>
         </CgCard>

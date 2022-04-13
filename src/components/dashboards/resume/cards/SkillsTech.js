@@ -7,16 +7,8 @@ import CgCardContent from '../../../ui/CgCardContent';
 import {AgGridReact} from 'ag-grid-react';
 
 const initialSkills = {
-        columnDefs: [
-            {headerName: "Make", field: "make"},
-				{headerName: "Model", field: "model"},
-				{headerName: "Price", field: "price"}
-        ],
-        rowData: [
-            {make: "Toyota", model: "Celica", price: 35000},
-				{make: "Ford", model: "Mondeo", price: 32000},
-				{make: "Porsche", model: "Boxter", price: 72000}
-        ]
+        columnDefs: [],
+        rowData: []
 }
 
 const SkillsTech = () => {
@@ -32,15 +24,23 @@ const SkillsTech = () => {
 
     return (
         <CgCard>
-            <CgCardHeader title='Technologies'/>
+            <CgCardHeader title='Cloud & Low Code Apps'/>
             <CgCardContent>
-                <div className="ag-theme-balham"
-	                style={{
-					height: '200px',
-					width: '600px',
-                    border: 'none'
-				}}>
-                <AgGridReact columnDefs={skills.columnDefs} rowData={skills.rowData} />
+                <div className="ag-theme-material h-full w-full">
+                <AgGridReact 
+                    columnDefs={skills.columnDefs} 
+                    rowData={skills.rowData} 
+                    enableSorting={true}
+                    enableFilter={true}
+                    enableColResize={true}
+                    defaultColDef={{
+                        resizable: true,
+                        sortable: true,
+                        filter: true,
+                        menuTabs: ['generalMenuTab', 'filterMenuTab'],
+                    }}
+                    className="text-left"
+                />
                 </div>
             </CgCardContent>
         </CgCard>

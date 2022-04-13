@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 const CgCardContent = ({ children }) => {
 
     return (
-        <CardContent>
+        <CardContent className="overflow-auto h-5/6">
             {children}
         </CardContent>
     )

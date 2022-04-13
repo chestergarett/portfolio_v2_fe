@@ -75,7 +75,7 @@ export const getTechnologies = async(data) => {
     if (docSnap.exists()){
         let result = {
             columnDefs: [
-                {headerName: 'Technology', field: 'name'},
+                {headerName: 'Technology', field: 'name', width: 250},
                 {headerName: 'Years of Exp', field: 'yearsOfExp'}
             ],
             data: []
