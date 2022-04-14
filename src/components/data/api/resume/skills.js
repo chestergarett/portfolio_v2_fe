@@ -1,4 +1,5 @@
 import { doc, getDoc } from 'firebase/firestore/lite';
+import CgAvatar from '../../../ui/CgAvatar';
 
 export const getGeneralSkills = async(data) => {
     const docRef = doc(data, 'Skills', 'generalSkills');
@@ -71,12 +72,25 @@ export const getFrameworks = async(data) => {
 export const getTechnologies = async(data) => {
     const docRef = doc(data, 'Skills', 'technologies')
     const docSnap = await getDoc(docRef)
+    const imageRenderer = (imageUrl) => {
+        return (
+            <div className="mt-1"><CgAvatar src={imageUrl} width={35} height={30} variant='square'/></div>
+        )
+    }
 
     if (docSnap.exists()){
         let result = {
             columnDefs: [
-                {headerName: 'Technology', field: 'name', width: 250},
-                {headerName: 'Years of Exp', field: 'yearsOfExp'}
+                {
+                    headerName: '', 
+                    field: 'image', 
+                    width: 80,
+                    cellRendererFramework: (params)=> {
+                        console.log(params)
+                        return imageRenderer(params.data.image)
+                }},
+                {headerName: 'Technology', field: 'name', width: 200},
+                {headerName: 'Years of Exp', field: 'yearsOfExp', width: 180},
             ],
             data: []
         }
@@ -85,7 +99,8 @@ export const getTechnologies = async(data) => {
 
         for (var key in obj){
             if (obj.hasOwnProperty(key)){
-                result.data.push({name: obj[key].name, yearsOfExp: obj[key].yearsOfExp})
+                // console.log(imageRenderer(obj[key].icon))
+                result.data.push({image: obj[key].icon, name: obj[key].name, yearsOfExp: obj[key].yearsOfExp})
             }
         }
 

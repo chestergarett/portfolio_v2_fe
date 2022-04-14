@@ -31,15 +31,15 @@ const SkillsTech = () => {
                     columnDefs={skills.columnDefs} 
                     rowData={skills.rowData} 
                     enableSorting={true}
-                    enableFilter={true}
+                    // enableFilter={true}
                     enableColResize={true}
                     defaultColDef={{
                         resizable: true,
                         sortable: true,
-                        filter: true,
+                        // filter: true,
                         // menuTabs: ['generalMenuTab', 'filterMenuTab'],
                     }}
-                    className="text-left"
+                    className="text-left overflow-auto"
                 />
                 </div>
             </CgCardContent>

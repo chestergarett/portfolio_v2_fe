@@ -1,9 +1,9 @@
 import Avatar from '@mui/material/Avatar';
 
-const CgAvatar = ({src, width, height}) => {
+const CgAvatar = ({src, width, height, variant='circular'}) => {
 
     return (
-        <Avatar src={src} alt={src} sx={{width: width, height: height}} />
+        <Avatar src={src} alt={src} sx={{width: width, height: height}} variant={variant}/>
     )
 }
 
