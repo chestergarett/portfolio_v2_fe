@@ -81,3 +81,7 @@ body {
 .selected {
   box-shadow: 0 0 0 99999px rgba(0, 0, 0, .5) !important;
 }
+
+.ag-theme-material .ag-row  {
+  border-width: 0px !important;
+}

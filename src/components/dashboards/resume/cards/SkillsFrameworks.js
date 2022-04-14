@@ -39,6 +39,22 @@ const initialOptions = {
     plugins: {
         legend: { 
             display: false,
+        },
+    },
+    scales: {
+        x:{
+            display: true,
+            title: {
+                display: true,
+                text: 'Years of Experience',
+                color: 'black',
+            },
+            max: 5,
+        },
+        y: {
+            ticks: {
+                color: 'black'
+            }
         }
     }
 }

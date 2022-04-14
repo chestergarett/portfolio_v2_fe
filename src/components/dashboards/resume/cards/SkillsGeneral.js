@@ -6,10 +6,14 @@ import CgCardHeader from '../../../ui/CgCardHeader';
 import CgCardContent from '../../../ui/CgCardContent';
 import { Bar } from 'react-chartjs-2';
 
+
+let image = new Image();
+image.src ='https://www.chartjs.org/img/chartjs-logo.svg';
+
 const initialSkills = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        labels: [],
         datasets: [{
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(255, 159, 64, 0.2)',
@@ -35,11 +39,43 @@ const initialSkills = {
 const initialOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    layout: {
+        padding: 20
+    },
     plugins: {
         legend: { 
             display: false,
         }
+    },
+    scales: {
+        y:{
+            display: true,
+            title: {
+                display: true,
+                text: 'Years of Experience',
+                color: 'black',
+            },
+            max: 10,
+        },
+        x:{
+            ticks: {
+                color: 'black',
+            }
+        }
     }
+}
+
+const barAvatar = {
+    id: 'barAvatar',
+    afterDatasetDraw(chart, args, options){
+        const { ctx, chartArea: { top, bottom, left, right, width, height },
+            scales: { x, y} } = chart;
+        ctx.save();
+
+        ctx.drawImage(image, x.getPixelForValue(0) - (30/2), y.getPixelForValue(5)-30, 30, 30);
+        ctx.drawImage(image, x.getPixelForValue(1) - (30/2), y.getPixelForValue(1)-30, 30, 30);
+    }
+
 }
 
 const SkillsGeneral = () => {
@@ -54,11 +90,13 @@ const SkillsGeneral = () => {
             .catch(err => console.log(err))
     },[])
 
+   
+
     return (
         <CgCard>
             <CgCardHeader title='General Skills'/>
             <CgCardContent>
-                <Bar data={skills} options={options} />
+                <Bar data={skills} options={options} plugins={[barAvatar]}/>
             </CgCardContent>
         </CgCard>
     )

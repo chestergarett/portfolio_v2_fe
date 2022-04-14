@@ -37,7 +37,7 @@ const SkillsTech = () => {
                         resizable: true,
                         sortable: true,
                         filter: true,
-                        menuTabs: ['generalMenuTab', 'filterMenuTab'],
+                        // menuTabs: ['generalMenuTab', 'filterMenuTab'],
                     }}
                     className="text-left"
                 />

@@ -7,10 +7,11 @@ import CgCardContent from '../../../ui/CgCardContent';
 import { Radar } from 'react-chartjs-2';
 
 const initialSkills = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        labels: [],
         datasets: [{
-        data: [65, 59, 80, 81, 56, 55, 40],
-        backgroundColor: [
+            label: 'Years of Experience',
+            data: [],
+            backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(255, 159, 64, 0.2)',
             'rgba(255, 205, 86, 0.2)',
@@ -18,8 +19,8 @@ const initialSkills = {
             'rgba(54, 162, 235, 0.2)',
             'rgba(153, 102, 255, 0.2)',
             'rgba(201, 203, 207, 0.2)'
-        ],
-        borderColor: [
+            ],
+            borderColor: [
             'rgb(255, 99, 132)',
             'rgb(255, 159, 64)',
             'rgb(255, 205, 86)',
@@ -27,8 +28,8 @@ const initialSkills = {
             'rgb(54, 162, 235)',
             'rgb(153, 102, 255)',
             'rgb(201, 203, 207)'
-        ],
-        borderWidth: 1
+            ],
+            borderWidth: 1
     }]
 }
 
@@ -37,12 +38,28 @@ const initialOptions = {
     maintainAspectRatio: true,
     plugins: {
         legend: { 
-            display: false,
+            display: true,
+            labels: {
+                color: 'black'
+            }
         }
     },
     elements: {
         line: {
             borderWidth: 3
+        }
+    },
+    scales: {
+        r: {
+            pointLabels: {
+                color: 'black',
+                font: {
+                    size: 12
+                }
+            },
+            ticks: {
+                stepSize: 1
+            }
         }
     }
 }
