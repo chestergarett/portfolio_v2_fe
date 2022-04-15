@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getGeneralSkills } from '../../../data/api/resume/skills';
+import { getWorkExperiences } from '../../../data/api/resume/workExperience';
 import { db } from '../../../../firebase/config';
 import CgCard from '../../../ui/CgCard';
 import CgAvatar from '../../../ui/CgAvatar';
@@ -7,78 +7,95 @@ import CgCardHeader from '../../../ui/CgCardHeader';
 import CgCardContent from '../../../ui/CgCardContent';
 import { Bar } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
+import { format } from 'date-fns'
 
 const initialExperience = {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    labels: [],
     datasets: [{
-    data: [
-        ['2022-03-01', '2022-03-03'],
-        ['2022-03-03', '2022-03-06'],
-        ['2022-03-07', '2022-03-09'],
-        ['2022-03-07', '2022-03-09'],
-        ['2022-03-16', '2022-03-21']
-    ],
+    data: [],
     icon: [],
     backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
+        'rgb(0,0,0)',
         'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)'
+        'rgb(30,144,255)',
     ],
     borderColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
+        'rgb(0,0,0)',
         'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)'
+        'rgb(30,144,255)',
     ],
-    barPercentage: 0.2
+    barPercentage: 0.4
 }]
 }
 
 const initialOptions = {
-responsive: true,
-maintainAspectRatio: false,
-indexAxis: 'y',
-layout: {
-    padding: 20
-},
-plugins: {
-    legend: { 
-        display: false,
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    layout: {
+        padding: 20
     },
-},
-scales: {
-    y:{
-        display: true,
-        title: {
+    plugins: {
+        legend: { 
+            display: false,
+        },
+        tooltip: {
+            callbacks: {
+                label: function(context){
+                    let label = `${format(new Date(context.raw[0]), 'LLL yyyy')} - ${format(new Date(context.raw[1]), 'LLL yyyy')}`;
+                    
+                    return label
+                }
+            }
+        }
+    },
+    scales: {
+        y:{
             display: true,
-            text: 'Years of Experience',
-            color: 'black',
+            title: {
+                display: false,
+            },
+            ticks: {
+                color: 'black'
+            },
+            grid: {
+                borderDash: [5,5]
+            }
         },
-        max: 10,
-    },
-    x:{
-        ticks: {
-            color: 'black',
-        },
-        type: 'time',
-        time: {
-            unit: 'day'
-        },
-        min: '2022-03-01'
+        x:{
+            type: 'time',
+            // offset: false,
+            time: {
+                unit: 'year'
+            },
+            min: '2016-12-16',
+            ticks: {
+                autoSkip: true,
+                maxTicksLimit: 10,
+                align: 'start',
+                maxRotation: 90,
+                minRotation: 0
+            },
+            grid: {
+                borderDash: [5,5]
+            }
+        }
     }
-}
 }
 
 const WorkExperience = () => {
     const [experience, setExperience] = useState(initialExperience)
     const [options, setOptions] = useState(initialOptions)
+
+    useEffect( ()=>{
+        getWorkExperiences(db)
+            .then(
+                res => {
+                    setExperience( {...experience, labels: res.labels, datasets: [{...experience.datasets[0], data: res.data}] })
+                }
+            )
+            .catch(error => console.log(error))
+    },[])
 
     return (
         <CgCard>
