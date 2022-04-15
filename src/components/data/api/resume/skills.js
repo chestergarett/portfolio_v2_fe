@@ -8,14 +8,18 @@ export const getGeneralSkills = async(data) => {
     if (docSnap.exists()){
         let result = {
             labels: [],
-            data: []
+            data: [],
+            icon: [],
+            plugins: {}
         }
+
         const obj = docSnap.data()
 
         for(var key in obj){
             if (obj.hasOwnProperty(key)){
                 result.labels.push(obj[key].name)
                 result.data.push(obj[key].yearsOfExp)
+                result.icon.push(obj[key].icon)
             }
         }
 
@@ -53,7 +57,8 @@ export const getFrameworks = async(data) => {
     if (docSnap.exists()){
         let result = {
             labels: [],
-            data: []
+            data: [],
+            icon: []
         }
 
         const obj = docSnap.data()
@@ -62,6 +67,7 @@ export const getFrameworks = async(data) => {
             if (obj.hasOwnProperty(key)){
                 result.labels.push(obj[key].name)
                 result.data.push(obj[key].yearsOfExp)
+                result.icon.push(obj[key].icon)
             }
         }
 
@@ -86,7 +92,6 @@ export const getTechnologies = async(data) => {
                     field: 'image', 
                     width: 80,
                     cellRendererFramework: (params)=> {
-                        console.log(params)
                         return imageRenderer(params.data.image)
                 }},
                 {headerName: 'Technology', field: 'name', width: 200},

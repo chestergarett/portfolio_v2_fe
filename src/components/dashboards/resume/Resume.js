@@ -4,6 +4,7 @@ import SkillsGeneral from './cards/SkillsGeneral';
 import SkillsLanguages from './cards/SkillsLanguages';
 import SkillsFrameworks from './cards/SkillsFrameworks';
 import SkillsTech from './cards/SkillsTech';
+import WorkExperience from './cards/WorkExperience';
 
 const layout = [
     { i: "about", x: 0, y:0, w: 5, h: 1, minW: 5},
@@ -11,6 +12,7 @@ const layout = [
     { i: "skills-languages", x: 0, y:6, w: 5, h: 4},
     { i: "skills-frameworks", x: 5, y:6, w: 5, h: 3},
     { i: "skills-tech", x: 10, y:12, w: 6, h: 3},
+    { i: "work-exp", x: 0, y:20, w: 10, h: 3},
 ]
 
 const ResponsiveGridLayout = WidthProvider(ReactGridLayout);
@@ -47,6 +49,9 @@ const Resume = () => {
                 </div>
                 <div key='skills-tech'>
                     <SkillsTech />
+                </div>
+                <div key='work-exp'>
+                    <WorkExperience />
                 </div>
             </ResponsiveGridLayout>
         </div>
