@@ -33,9 +33,9 @@ const Resume = () => {
                 cols={16}
                 // cols={16}
                 rowHeight={150} 
-                isDraggable
-                isRearrangeable
-                isResizable
+                isDraggable={false}
+                isRearrangeable={false}
+                isResizable={false}
                 width={1200}
                 onBreakPointChange={(e)=>{console.log(e)}}
             >

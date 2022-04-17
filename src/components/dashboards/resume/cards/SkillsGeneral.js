@@ -104,7 +104,7 @@ const SkillsGeneral = () => {
             <CgCardHeader title='General Skills'/>
             <CgCardContent overflow={false}>
                     {!loading ? <><Bar data={skills} options={options} plugins={[plugins]} />
-                    <div className="inline-flex items-center justify-center text-xs text-slate-500 -mt-10">
+                    <div className="inline-flex items-center justify-center text-xs text-slate-500 -mt-7">
                         <CgAvatar 
                             src="https://firebasestorage.googleapis.com/v0/b/portfolioapp-348a9.appspot.com/o/star-icon-flat-354483.png?alt=media&token=57a7cc51-ab66-4200-9910-71b39c64aeee" 
                             alt="custom_legend"
