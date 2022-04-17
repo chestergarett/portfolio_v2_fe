@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import DashboardContext from '../../context/dashboardContext';
 import ReactGridLayout, {Responsive, WidthProvider} from 'react-grid-layout';
 import About from './cards/About';
 import SkillsGeneral from './cards/SkillsGeneral';
@@ -9,35 +11,31 @@ import WorkLocation from './cards/WorkLocation';
 import Education from './cards/Education';
 
 const layout = [
-    { i: "about", x: 0, y:0, w: 5, h: 1, minW: 5},
-    { i: "skills-general", x: 5, y:0, w: 11, h: 2,},
-    { i: "skills-languages", x: 0, y:6, w: 5, h: 4},
-    { i: "skills-frameworks", x: 5, y:6, w: 5, h: 3},
-    { i: "skills-tech", x: 10, y:12, w: 6, h: 3},
-    { i: "work-exp", x: 0, y:10, w: 8, h: 2},
-    { i: "work-location", x: 8, y:20, w: 8, h: 4},
-    { i: "education", x: 0, y:10, w: 8, h: 2},
+    { i: "about", x: 0, y:0, w: 5, h: 2, minW: 5},
+    { i: "skills-general", x: 5, y:0, w: 11, h: 3,},
+    { i: "skills-languages", x: 0, y:6, w: 5, h: 5},
+    { i: "skills-frameworks", x: 5, y:6, w: 5, h: 4},
+    { i: "skills-tech", x: 10, y:12, w: 6, h: 4},
+    { i: "work-exp", x: 0, y:10, w: 8, h: 3},
+    { i: "work-location", x: 8, y:20, w: 8, h: 6},
+    { i: "education", x: 0, y:10, w: 8, h: 3},
 ]
 
 const ResponsiveGridLayout = WidthProvider(ReactGridLayout);
 
 const Resume = () => {
-    
+    const { editMode } = useContext(DashboardContext);
+
     return(
         <div className='p4'>
             <ResponsiveGridLayout 
                 layout={layout}
-                // breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-                // cols={{ lg: 16, md: 16, sm: 12, xs: 10, xxs: 1 }} 
-                // breakpoints={{lg: 1200}}
                 cols={16}
-                // cols={16}
-                rowHeight={150} 
-                isDraggable={false}
-                isRearrangeable={false}
-                isResizable={false}
+                rowHeight={100} 
+                isDraggable={editMode}
+                isRearrangeable={editMode}
+                isResizable={editMode}
                 width={1200}
-                onBreakPointChange={(e)=>{console.log(e)}}
             >
                 <div key='about'>
                     <About />
