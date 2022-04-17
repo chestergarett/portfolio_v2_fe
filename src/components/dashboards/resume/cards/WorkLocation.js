@@ -23,8 +23,8 @@ const WorkLocation = () => {
             <CgCardContent wNoMargin>
                 <MapCard data={location}/>
                 <div className='flex flex-col text-xs mapText'>
-                    <span className='bg-white mb-2'>I prefer fully remote setup but for onsite work, I am open for opportunities around the pinned areas. </span>
-                    <span className='bg-white'>I am also open for relocation for work abroad. </span>
+                    <span className='bg-white mb-2 border border-sky-500'>I prefer fully remote setup but for onsite work, I am open for opportunities around the pinned areas. </span>
+                    <span className='bg-white border border-sky-500 p-1'>I am also open for relocation for work abroad. </span>
                 </div>
             </CgCardContent>
         </CgCard>

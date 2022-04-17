@@ -1,11 +1,31 @@
+import { useState, useEffect } from 'react';
 import CgCard from '../../../ui/CgCard';
 import CgCardHeader from '../../../ui/CgCardHeader';
 import CgCardContent from '../../../ui/CgCardContent';
+import MultiMetricCard from '../../../charts/MultiMetricCard';
+import { getEducation } from '../../../data/api/resume/education';
+import { db } from '../../../../firebase/config';
 
 const Education = () => {
-    <CgCard>
+    const [education, setEducation] = useState(null)
 
-    </CgCard>
+    useEffect( ()=> {
+        getEducation(db)
+        .then(res => {
+            setEducation(res.datasets)
+        })
+        .catch(err => console.log(err))
+    }
+    ,[])
+
+    return(
+        <CgCard>
+            <CgCardHeader title='Education'/>
+            <CgCardContent>
+                <MultiMetricCard data={education}/>
+            </CgCardContent>
+        </CgCard>
+    )
 }
 
 export default Education;

@@ -6,7 +6,7 @@ const CgCardContent = ({ children, overflow, wNoMargin }) => {
     return (
         <CardContent 
             className={`${overflow ? `overflow-auto` : `overflow-hidden`} 
-                        ${wNoMargin ? ` h-full w-full mapCard` : ` h-5/6 w-full mapCard`}
+                        ${wNoMargin ? ` h-full w-full mapCard` : ` h-5/6 mapCard`}
                         flex items-center justify-center flex-col
             `}
         >

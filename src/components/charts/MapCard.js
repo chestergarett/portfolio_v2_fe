@@ -13,7 +13,6 @@ const getIcon = (_iconSize) => {
 const center = [14.556586, 121.023415]
 
 const WorldMap = ({data}) => {
-    console.log(data)
     return (
         <MapContainer 
             className="h-full w-full"
