@@ -58,7 +58,7 @@ body {
   user-select: none;
 }
 
-.react-grid-item > .react-resizable-handle {
+.resizableIcon > .react-resizable-handle {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -68,7 +68,7 @@ body {
   z-index: 999999;
 }
 
-.react-grid-item > .react-resizable-handle::after {
+.resizableIcon > .react-resizable-handle::after {
   content: "";
   position: absolute;
   right: 3px;
@@ -79,12 +79,19 @@ body {
   border-bottom: 2px solid rgba(0, 0, 0, 0.4);
 }
 
-.selected {
-  box-shadow: 0 0 0 99999px rgba(0, 0, 0, .5) !important;
-}
-
 .ag-theme-material .ag-row  {
   border-width: 0px !important;
+}
+
+.sideBarCategory{
+  font-weight: 700 !important;
+}
+
+.toggleFlex {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center !important;
+  padding: 0.2rem !important;
 }
 
 .cardHeader{

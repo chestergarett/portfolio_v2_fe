@@ -12,9 +12,15 @@ appbar: [
     {name: 'ABOUT'},
 ],
 
+
 sidebar: [
-    {key: v4(), text: 'Dashboards', icon: <HomeIcon />, link: '/Landing'},
-    {key: v4(), text: 'Apps', icon: <DialpadIcon  />, link: '/Calculator'},
+    {key: v4(), text: 'Dashboards', icon: <HomeIcon />},
+    {key: v4(), text: 'Resume', link: '/Landing', type: 'dashboard'},
+    {key: v4(), text: 'Apps', icon: <DialpadIcon  />},
+    {key: v4(), text: 'Fitness', link: 'https://avion-fitness-bot.netlify.app', type: 'app'},
+    {key: v4(), text: 'Trading', link: 'https://bwinance.herokuapp.com/', type: 'app'},
+    {key: v4(), text: 'Sports', link: 'https://sportsapp-86653.firebaseapp.com', type: 'app'},
+
 ],
 content: <Resume />
 }

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import Switch from '@mui/material/Switch';
 import Container from '@mui/material/Container';
@@ -11,6 +11,14 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import DashboardContext from '../context/dashboardContext';
+
+import Tooltip from '@mui/material/Tooltip';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+
+const handleReset = () => {
+  localStorage.removeItem('grid-layout')
+  window.location.reload();
+}
 
 const CgAppbar = ({data, handleDrawerOpen}) => {
   
@@ -40,9 +48,11 @@ const CgAppbar = ({data, handleDrawerOpen}) => {
                   )}
                   </Box>
                 </> : <Box sx={{flexGrow: 1}}> You are in edit mode. Drag and resize the cards for your preferred layout. </Box> }
-            <Box sx={{ flexGrow: 0 }}>
-              <FormControl onClick={handleEditToggle} className='bg-white text-black rounded p-2'>
-                <FormControlLabel control={<Switch defaultChecked={false} />} label={`${editMode ? `Disable` : `Enable`} Edit Mode`} />
+            <Box sx={{ flexGrow: 0, }} className='toggleFlex'>
+              {editMode ? <Tooltip title='Reset Layout'><IconButton onClick={handleReset}><RestartAltIcon className='mr-4 text-white' /></IconButton></Tooltip>: ''}
+              <FormControl className='bg-white text-black rounded p-2 toggleFlex'>
+                <Switch onClick={handleEditToggle} />
+                <span>{`${editMode ? 'Disable' : 'Enable '} Edit Mode`}</span>
               </FormControl>
             </Box>
           </Toolbar>
