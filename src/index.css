@@ -65,6 +65,7 @@ body {
   bottom: 0;
   right: 0;
   cursor: se-resize;
+  z-index: 999999;
 }
 
 .react-grid-item > .react-resizable-handle::after {
@@ -84,4 +85,24 @@ body {
 
 .ag-theme-material .ag-row  {
   border-width: 0px !important;
+}
+
+.cardHeader{
+  z-index: 99999;
+}
+
+.mapCard {
+  padding: 0 !important;
+}
+
+.mapText{
+  z-index: 99999;
+  position: absolute;
+  top: 10%;
+  right: 1%;
+  width: 11rem;
+}
+
+.mapText>*{
+  padding: 0 !important;
 }

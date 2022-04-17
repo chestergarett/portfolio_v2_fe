@@ -6,7 +6,7 @@ const CgCardHeader = ({ title, subtitle }) => {
 
         return (
             <>
-                <div className="overflow scroll h-5 p-5 flex items-center justify-items-start font-bold">
+                <div className="overflow scroll h-5 p-5 flex items-center justify-items-start font-bold cardHeader">
                     {title}
                 </div>
                 <Divider />
