@@ -2,13 +2,12 @@ import { useContext } from 'react';
 import DashboardContext from '../context/dashboardContext';
 import CgPageLayout from '../ui/CgPageLayout';
 
-const PageDashboard = () => {
-
+const PageAbout = () => {
     const { data } = useContext(DashboardContext);
-    console.log(data.content.resume)
+
     return (
-        <CgPageLayout appbar={data.appbar} sidebar={data.sidebar} content={data.content.resume}/>
+        <CgPageLayout appbar={data.appbar} sidebar={data.sidebar} content={data.content.about}/>
     )
 }
 
-export default PageDashboard;
+export default PageAbout;

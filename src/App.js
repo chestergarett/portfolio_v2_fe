@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';  
-import PageDashboard from './components/pages/PageDashboard';
 import DashboardProvider from './components/context/dashboardProvider';
+import PageDashboard from './components/pages/PageDashboard';
+import PageAbout from './components/pages/PageAbout'
 import { Chart, registerables } from 'chart.js';
 
 
@@ -13,6 +14,7 @@ const App = () => {
       <Router>
         <Routes>
             <Route path='/' exact element={<PageDashboard/>} />
+            <Route path='/about'  element={<PageAbout/>} />
         </Routes>
       </Router>
     </DashboardProvider>

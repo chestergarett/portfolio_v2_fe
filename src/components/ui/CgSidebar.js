@@ -6,7 +6,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 const CgSidebar = ({options}) => {
-  console.log(options)
+  
     return (
       <>
         <List>

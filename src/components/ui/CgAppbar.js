@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Link as BrowserLink } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -42,9 +43,11 @@ const CgAppbar = ({data, handleDrawerOpen}) => {
                   </IconButton>
                   <Box sx={{ flexGrow: 1}}>
                   {data.map(item => 
-                    <Button color='inherit' sx={{ flexGrow: 1, display: 'inline'}} className='pr-3 tracking-wide' key={item.name}>
-                        {item.name}
-                    </Button>  
+                    <BrowserLink to={item.link}>
+                      <Button color='inherit' sx={{ flexGrow: 1, display: 'inline'}} className='pr-3 tracking-wide' key={item.name}>
+                          {item.name}
+                      </Button>  
+                    </BrowserLink>
                   )}
                   </Box>
                 </> : <Box sx={{flexGrow: 1}}> You are in edit mode. Drag and resize the cards for your preferred layout. </Box> }
