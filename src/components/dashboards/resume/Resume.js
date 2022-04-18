@@ -18,7 +18,7 @@ const layout = [
     { i: "skills-tech", x: 10, y:3, w: 6, h: 4, minW: 6, minH: 2, card: <SkillsTech/>},
     { i: "work-exp", x: 0, y:7, w: 8, h: 3, minW: 4, minH: 2, card: <WorkExperience/>},
     { i: "work-location", x: 8, y:7, w: 8, h: 6, minW: 8, minH: 4, card: <WorkLocation/>},
-    { i: "education", x: 0, y:10, w: 8, h: 3, minW: 6, minH: 2, card: <Education/>},
+    { i: "education", x: 0, y:10, w: 8, h: 3, minW: 6, minH: 2, card: <Education />},
 ]
 
 const ResponsiveGridLayout = WidthProvider(ReactGridLayout);

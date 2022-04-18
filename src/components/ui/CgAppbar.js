@@ -43,8 +43,8 @@ const CgAppbar = ({data, handleDrawerOpen}) => {
                   </IconButton>
                   <Box sx={{ flexGrow: 1}}>
                   {data.map(item => 
-                    <BrowserLink to={item.link}>
-                      <Button color='inherit' sx={{ flexGrow: 1, display: 'inline'}} className='pr-3 tracking-wide' key={item.name}>
+                    <BrowserLink to={item.link}  key={item.name}>
+                      <Button color='inherit' sx={{ flexGrow: 1, display: 'inline'}} className='pr-3 tracking-wide'>
                           {item.name}
                       </Button>  
                     </BrowserLink>
