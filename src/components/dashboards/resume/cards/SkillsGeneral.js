@@ -73,7 +73,7 @@ let plugins =  {
             scales: { x, y} } = chart;
         ctx.save();
         x.ticks.forEach( (item,index)=> {
-                if(item.label==='Data Engineering' || item.label=='Web Development'){
+                if(item.label==='Data Engineering' || item.label==='Web Development' || item.label==='Data Analysis'){
                     ctx.drawImage(image, x.getPixelForValue(index) - (30/2), y.getPixelForValue(chart.data.datasets[0].data[index])-25, 20, 20)
                 }
             
