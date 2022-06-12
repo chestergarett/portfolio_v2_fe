@@ -26,7 +26,11 @@ const CgAppbar = ({data, handleDrawerOpen}) => {
   const { editMode, handleEditToggle } = useContext(DashboardContext);
   
   return (
-      <AppBar position="fixed" color={!editMode ? 'inherit' : 'primary'} className= 'h-16'>
+      <AppBar 
+        position="fixed" 
+        className= 'h-16'
+        style={{ background: `${!editMode ? '#1d4354' : 'black'}`  }}
+      >
         <Container maxWidth="xl" disableGutters>
           <Toolbar>
             { !editMode ? 
@@ -53,7 +57,7 @@ const CgAppbar = ({data, handleDrawerOpen}) => {
                 </> : <Box sx={{flexGrow: 1}}> You are in edit mode. Drag and resize the cards for your preferred layout. </Box> }
             <Box sx={{ flexGrow: 0, }} className='toggleFlex'>
               {editMode ? <Tooltip title='Reset Layout'><IconButton onClick={handleReset}><RestartAltIcon className='mr-4 text-white' /></IconButton></Tooltip>: ''}
-              <FormControl className='bg-white text-black rounded p-2 toggleFlex'>
+              <FormControl className='bg-inherit text-white rounded p-2 toggleFlex'>
                 <Switch onClick={handleEditToggle} />
                 <span>{`${editMode ? 'Disable' : 'Enable '} Edit Mode`}</span>
               </FormControl>

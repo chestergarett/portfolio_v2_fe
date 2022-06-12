@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 const CgSidebar = ({options}) => {
   
     return (
-      <>
+      <div>
         <List>
           {options.map((option) => {
       
@@ -29,7 +29,7 @@ const CgSidebar = ({options}) => {
             </div> )
           })}
         </List>
-      </>
+      </div>
     )
 }
 

@@ -36,7 +36,13 @@ const CgPageLayout = ({appbar, sidebar, content}) => {
     return (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-          {open ? <Drawer variant="permanent">
+          {open ? 
+          <Drawer variant="permanent" PaperProps={{
+            sx: {
+            backgroundColor: "#1d4354",
+            color: "white",
+              }
+          }}>
             <DrawerHeader>
               <IconButton onClick={handleDrawerClose}>
                 <ChevronLeftIcon  />
