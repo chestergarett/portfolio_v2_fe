@@ -6,7 +6,8 @@
 :root {
   --white-primary: rgb(255 255 255);
   --white-secondary: rgb(244 244 245);
-  --blue-primary: #1976d2;
+  --blue-primary: #1d4354;
+  --blue-secondary: #5072A7;
 }
 
 body {

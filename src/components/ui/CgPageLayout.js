@@ -21,7 +21,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const CgPageLayout = ({appbar, sidebar, content}) => {
+const CgPageLayout = ({appbar, sidebar, content , occupiesViewPort}) => {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
   
@@ -34,7 +34,7 @@ const CgPageLayout = ({appbar, sidebar, content}) => {
     };
   
     return (
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex'}} style={{display: 'flex', height: `${occupiesViewPort  ? '100vh' : ''}`}}>
         <CssBaseline />
           {open ? 
           <Drawer variant="permanent" PaperProps={{
@@ -52,7 +52,7 @@ const CgPageLayout = ({appbar, sidebar, content}) => {
                 <CgSidebar options={sidebar}/>
             <Divider />            
           </Drawer> : <CgAppbar data={appbar} handleDrawerOpen={handleDrawerOpen}/>}
-          <CgContent content={content} open={open}/>
+          <CgContent content={content} open={open}  />
       </Box>
     );
 }

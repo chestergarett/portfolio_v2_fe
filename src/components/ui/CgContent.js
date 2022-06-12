@@ -13,7 +13,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const CgContent = ({content, open}) => {
 
     return (
-        <Box component="main" sx={{ flexGrow: 1, p: 3, width: '100vw'}}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, width: `100vw`}}>
           <DrawerHeader/>
               {content}
         </Box>
