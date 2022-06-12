@@ -9,7 +9,7 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables)
 
 const App = () => {
-  
+   
   return (
     <DashboardProvider>
       <Router>
