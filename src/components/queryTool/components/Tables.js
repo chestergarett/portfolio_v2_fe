@@ -10,7 +10,7 @@ const Tables = ({data, isLoading}) => {
     return (
         <Grid item xs={12} md={6} className="h-5/6 bg-slate-100">
             { isLoading ? <LoadingSpinner dark/> : <List dense={true}>
-                {data[0]?.portfolio.map( item => 
+                {data && data[0] && data[0].portfolio ? data[0].portfolio.map( item => 
                   <ListItem key={item}>
                   <ListItemIcon>
                     <TableViewIcon />
@@ -19,7 +19,7 @@ const Tables = ({data, isLoading}) => {
                     primary={item}
                   />
                 </ListItem>
-                )}
+                ) : ''}
             </List>}
         </Grid>
     )
