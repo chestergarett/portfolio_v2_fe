@@ -20,11 +20,6 @@ const DashboardContext = createContext({
             {key: v4(), text: 'Dashboards', icon: <HomeIcon />},
             {key: v4(), text: 'Resume', link: '/', type: 'dashboard'},
             {key: v4(), text: 'Apps', icon: <DialpadIcon  />},
-            {key: v4(), text: 'Fitness', link: 'https://avion-fitness-bot.netlify.app', type: 'app'},
-            {key: v4(), text: 'Trading', link: 'https://bwinance.herokuapp.com/', type: 'app'},
-            {key: v4(), text: 'Sports', link: 'https://sportsapp-86653.firebaseapp.com', type: 'app'},
-            {key: v4(), text: 'Other Works', link: 'https://chestergarett-portfolio-ff9f1e.netlify.app', type: 'app'},
-        
         ],
         content: {
             resume: <Resume />,
