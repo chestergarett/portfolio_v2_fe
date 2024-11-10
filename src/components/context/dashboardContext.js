@@ -4,6 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DialpadIcon from '@mui/icons-material/Dialpad';
 import Resume from '../dashboards/resume/Resume';
 import About from '../dashboards/about/About';
+import Portfolio from '../dashboards/portfolio/Portfolio';
 import QueryTool from '../queryTool/QueryTool';
 
 const DashboardContext = createContext({
@@ -14,6 +15,7 @@ const DashboardContext = createContext({
         appbar: [
             {name: 'HOME', link: '/'},
             {name: 'QUERY TOOL', link: '/queryTool'},
+            {name: 'PORTFOLIO', link: '/portfolio'},
             {name: 'ABOUT', link: '/about'},
         ],
         sidebar: [
@@ -24,7 +26,8 @@ const DashboardContext = createContext({
         content: {
             resume: <Resume />,
             about: <About />,
-            queryTool: <QueryTool />
+            queryTool: <QueryTool />,
+            portfolio: <Portfolio />
         }
     }
 });
