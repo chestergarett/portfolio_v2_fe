@@ -4,7 +4,7 @@ import ReactGridLayout, {Responsive, WidthProvider} from 'react-grid-layout';
 import Project from './cards/Project';
 
 const layout = [
-    { i: "project", x: 0, y:0, w: 8, h: 6, minW: 8, minH: 6, card: <Project/>},
+    { i: "project", x: 0, y:0, w: 16, h: 6, minW: 16, minH: 6, card: <Project/>},
 ]
 
 const ResponsiveGridLayout = WidthProvider(ReactGridLayout);
@@ -27,7 +27,7 @@ const Portfolio = () => {
                 // layout={{ lg : savedLayout ? JSON.parse(savedLayout) : layout}}
                 // breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
                 // cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }}
-                rowHeight={50} 
+                rowHeight={100} 
                 isDraggable={editMode}
                 isRearrangeable={editMode}
                 isResizable={editMode}

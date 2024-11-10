@@ -29,7 +29,7 @@ const Project = () => {
     }, []);
     
     return (
-        <div>
+        <div class='flex flex-col w-screen'>
             <ListSubheader component="div">Portfolio</ListSubheader>
             <div className="flex flex-row p-2">
                 {portfolio ? portfolio.map((item) => (
